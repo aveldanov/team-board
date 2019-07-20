@@ -34,7 +34,7 @@ const App = () => {
                 <Switch>
 
                   <PrivateRoute exact path='/' component={Home} />
-                  <Route exact path='/team' component={Team} />
+                  <PrivateRoute exact path='/team' component={Team} />
                   <Route exact path='/register' component={Register} />
                   <Route exact path='/login' component={Login} />
 
