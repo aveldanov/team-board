@@ -22,9 +22,9 @@ const Navbar = ({ title, icon }) => {
 
   const authLinks = (
     <Fragment>
-      {/* <li>
+      <li>
         <Link to="/">My Tasks</Link>
-      </li> */}
+      </li>
       <li>
         <Link to="/team">Team</Link>
       </li>
