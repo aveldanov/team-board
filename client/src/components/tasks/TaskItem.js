@@ -20,8 +20,13 @@ const TaskItem = ({ task }) => {
         {message}
 
 
-        <button className="btn btn-danger btn-sm" onClick={onDelete} style={{ float: 'right' }}>Delete</button>
-        <button className="btn btn-dark btn-sm" onClick={() => setCurrent(task)} style={{ float: 'right' }}>Edit</button>
+        <button
+          className="btn btn-danger btn-sm" onClick={onDelete}
+          style={{ float: 'right' }}>Delete</button>
+        <button
+          className="btn btn-dark btn-sm"
+          onClick={() => setCurrent(task)}
+          style={{ float: 'right' }}>Edit</button>
 
       </h3>
     </div>

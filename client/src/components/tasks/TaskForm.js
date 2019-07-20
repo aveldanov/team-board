@@ -53,9 +53,20 @@ const TaskForm = () => {
   }
 
   return (
-    <form className="grid-4" onSubmit={onSubmit}>
-      <input style={{ gridColumn: "1/4" }} type="text" placeholder="Add a task..." name="message" value={message} onChange={onChange} />
-      <input type="submit" value={current ? 'Update task' : 'Add task'} className="btn btn-primary" />
+    <form
+      className="grid-4"
+      onSubmit={onSubmit}>
+      <input
+        style={{ gridColumn: "1/4" }}
+        type="text"
+        placeholder="Add a task..."
+        name="message"
+        value={message}
+        onChange={onChange} />
+      <input
+        type="submit"
+        value={current ? 'Update task' : 'Add task'}
+        className="btn btn-primary" />
     </form>
   )
 }
