@@ -32,7 +32,7 @@ router.get('/', auth, async (req, res) => {
 
 router.post('/', [
   check('email', 'Please include a valid email').isEmail(),
-  check('password', 'Password is required').exists()
+  check('password', 'Please enter a password with min 6 characters').isLength({ min: 6 })
 ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
@@ -53,7 +53,7 @@ router.post('/', [
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({
-        msg: 'Passwords do not match'
+        msg: 'Invalid Credentials'
       })
     }
 
