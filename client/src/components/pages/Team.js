@@ -9,7 +9,7 @@ const Team = () => {
   }, []);
   return (
     <div>
-      <h1>TEAM</h1>
+      <h1>TEAM TASKS</h1>
       <TasksAll />
     </div>
   )
