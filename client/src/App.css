@@ -294,9 +294,9 @@ img {
   border: #ccc solid 1px;
 }
 
-.btn:hover {
+/* .btn:hover {
   opacity: 0.8;
-}
+} */
 
 .bg-light,
 .badge-light {
