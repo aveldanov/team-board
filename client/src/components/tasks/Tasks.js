@@ -1,20 +1,36 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import TaskContext from '../../contexts/task/taskContext';
 import TaskItem from './TaskItem';
+import Spinner from '../layout/Spinner';
 
 
 const Tasks = () => {
   const taskContext = useContext(TaskContext);
 
-  const { tasks } = taskContext;
+  const { tasks, getTasks, loading } = taskContext;
+  console.log(tasks);
+
+  useEffect(() => {
+    getTasks();
+    // eslint-disable-next-line
+  }, [])
 
 
-  console.log(tasks.map((task) => task));
+
 
   return (
-    <div>
-      {tasks.map((task) => <TaskItem key={task.id} task={task} />)}
-    </div>
+    <Fragment>
+
+
+
+
+      {tasks !== null && !loading ? (
+        < div >
+          {tasks.map((task) => <TaskItem key={task._id} task={task} />)}
+        </div>
+      ) : <Spinner />}
+
+    </Fragment>
   )
 }
 

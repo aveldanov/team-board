@@ -30,7 +30,7 @@ router.get('/', auth, async (req, res) => {
 
 router.get('/team', auth, async (req, res) => {
   try {
-    const tasks = await Task.find();
+    const tasks = await Task.find().populate('user').sort({ user: 1 }).sort({ date: -1 });
     res.json(tasks)
   } catch (err) {
     console.error(error);

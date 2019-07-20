@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Tasks from '../../components/tasks/Tasks';
 import TaskForm from '../tasks/TaskForm';
+import AuthContext from '../../contexts/auth/authContext';
 
 
 const Home = () => {
+
+  const authContext = useContext(AuthContext);
+  useEffect(() => {
+    authContext.loadUser();
+    // eslint-disable-next-line 
+  }, []);
+
+
   return (
     <div >
       <div>

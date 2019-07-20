@@ -7,21 +7,48 @@ import {
   CLEAR_CURRENT,
   SET_ALERT,
   REMOVE_ALERT,
-  UPDATE_TASK
+  UPDATE_TASK,
+  TASK_ERROR,
+  GET_TASKS,
+  CLEAR_TASKS,
+  GET_ALL_TASKS
 } from '../types';
 
 
 export default (state, action) => {
   switch (action.type) {
+    case GET_TASKS:
+      return {
+        ...state,
+        tasks: action.payload,
+        loading: false
+      }
+
+    case GET_ALL_TASKS:
+      return {
+        ...state,
+        tasks: action.payload,
+        loading: false
+      }
     case ADD_TASK:
       return {
         ...state,
-        tasks: [...state.tasks, action.payload]
+        tasks: [...state.tasks, action.payload],
+        loading: false
       }
     case DELETE_TASK:
       return {
         ...state,
-        tasks: state.tasks.filter(task => task.id !== action.payload)
+        tasks: state.tasks.filter(task => task._id !== action.payload),
+        loading: false
+      }
+
+    case CLEAR_TASKS:
+      return {
+        ...state,
+        tasks: null,
+        error: null,
+        current: null
       }
 
     case SET_CURRENT:
@@ -38,9 +65,14 @@ export default (state, action) => {
     case UPDATE_TASK:
       return {
         ...state,
-        tasks: state.tasks.map((task) => task.id === action.payload.id ? action.payload : task)
+        tasks: state.tasks.map((task) => task._id === action.payload._id ? action.payload : task),
+        loading: false
       }
-
+    case TASK_ERROR:
+      return {
+        ...state,
+        error: action.payload
+      }
 
     default:
       return state;
