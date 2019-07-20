@@ -13,7 +13,6 @@ import Alerts from './components/layout/Alerts';
 import setAuthToken from './utils/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
 
-import Test from './components/pages/Test';
 
 
 if (localStorage.token) {
@@ -24,26 +23,29 @@ if (localStorage.token) {
 
 const App = () => {
   return (
+    <AuthState>
+      <TaskState>
+        <AlertState>
+          <Router>
+            <Fragment className="App">
+              <Navbar />
+              <div className="container">
+                <Alerts />
+                <Switch>
 
-    <Router>
-      <Fragment className="App">
-
-        <div className="container">
-
-          <Switch>
-            YEST
-            <Route exact path='/' component={Test} />
-            {/* <PrivateRoute exact path='/' component={Home} /> */}
-            {/* <Route exact path='/team' component={Team} />
+                  <PrivateRoute exact path='/' component={Home} />
+                  <Route exact path='/team' component={Team} />
                   <Route exact path='/register' component={Register} />
-                  <Route exact path='/login' component={Login} /> */}
+                  <Route exact path='/login' component={Login} />
 
-          </Switch>
-        </div>
-      </Fragment>
+                </Switch>
+              </div>
+            </Fragment>
 
-    </Router>
-
+          </Router>
+        </AlertState>
+      </TaskState>
+    </AuthState>
   );
 }
 
