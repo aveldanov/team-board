@@ -13,8 +13,7 @@ import Alerts from './components/layout/Alerts';
 import setAuthToken from './utils/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
 
-import playground from './playground/playground';
-
+import Test from './components/pages/Test';
 
 
 if (localStorage.token) {
@@ -34,11 +33,12 @@ const App = () => {
               <div className="container">
                 <Alerts />
                 <Switch>
-                  <PrivateRoute exact path='/' component={Home} />
+                  <Route exact path='/' component={Test} />
+                  {/* <PrivateRoute exact path='/' component={Home} /> */}
                   <Route exact path='/team' component={Team} />
                   <Route exact path='/register' component={Register} />
                   <Route exact path='/login' component={Login} />
-                  <Route exact path='/playground' component={playground} />
+
                 </Switch>
               </div>
             </Fragment>
