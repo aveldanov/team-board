@@ -1,8 +1,8 @@
 import React, { Fragment, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import AuthContext from '../../contexts/auth/authContext';
-import TaskContext from '../../contexts/task/taskContext';
+import AuthContext from '../../context/auth/authContext';
+import TaskContext from '../../context/task/taskContext';
 
 
 const Navbar = ({ title, icon }) => {

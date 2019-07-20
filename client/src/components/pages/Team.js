@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react'; import TasksAll from '../tasks/TasksAll';
-import AuthContext from '../../contexts/auth/authContext';
+import AuthContext from '../../context/auth/authContext';
 
 const Team = () => {
   const authContext = useContext(AuthContext);

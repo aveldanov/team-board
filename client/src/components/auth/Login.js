@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
-import AuthContext from '../../contexts/auth/authContext';
-import AlertContext from '../../contexts/alert/alertContext';
+import AuthContext from '../../context/auth/authContext';
+import AlertContext from '../../context/alert/alertContext';
 
 
 

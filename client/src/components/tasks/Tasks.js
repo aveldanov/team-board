@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect } from 'react';
-import TaskContext from '../../contexts/task/taskContext';
+import TaskContext from '../../context/task/taskContext';
 import TaskItem from './TaskItem';
 import Spinner from '../layout/Spinner';
 

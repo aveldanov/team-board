@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import Tasks from '../../components/tasks/Tasks';
 import TaskForm from '../tasks/TaskForm';
-import AuthContext from '../../contexts/auth/authContext';
+import AuthContext from '../../context/auth/authContext';
 
 
 const Home = () => {
