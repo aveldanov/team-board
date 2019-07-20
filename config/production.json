@@ -1,4 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://anton123:anton123@team-board-prod-cluster-on9lk.mongodb.net/test?retryWrites=true&w=majority",
+  "mongoURI": "process.env.MONGO_URI",
   "jwtSecret": "secret"
 }
