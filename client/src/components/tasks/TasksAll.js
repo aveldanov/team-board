@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, Fragment } from 'react';
+import React, { useContext, useEffect, Fragment } from 'react';
 import TaskContext from '../../contexts/task/taskContext';
 import TaskItemBox from './TaskItemBox';
 import Spinner from '../layout/Spinner';

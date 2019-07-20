@@ -1,6 +1,5 @@
 import React from 'react';
 import _ from 'lodash';
-var groupArray = require('group-array');
 
 
 const data = [
