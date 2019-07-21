@@ -98,7 +98,6 @@ const TaskState = props => {
   // Delete task
 
   const deleteTask = async (id) => {
-
     try {
       await axios.delete(`/api/tasks/${id}`);
 
@@ -107,6 +106,7 @@ const TaskState = props => {
         payload: id
       })
     } catch (err) {
+
       dispatch({
         type: TASK_ERROR,
         payload: err.response.msg

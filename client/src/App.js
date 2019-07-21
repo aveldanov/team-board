@@ -12,7 +12,9 @@ import AlertState from './context/alert/AlertState';
 import Alerts from './components/layout/Alerts';
 import setAuthToken from './utils/setAuthToken';
 import PrivateRoute from './components/routing/PrivateRoute';
-
+import Admin from './components/pages/Admin';
+import UserState from './context/user/UserState';
+import AdminRoute from './components/routing/AdminRoute';
 
 
 if (localStorage.token) {
@@ -24,27 +26,32 @@ if (localStorage.token) {
 const App = () => {
   return (
     <AuthState>
-      <TaskState>
-        <AlertState>
-          <Router>
-            <Fragment className="App">
-              <Navbar />
-              <div className="container">
-                <Alerts />
-                <Switch>
+      <UserState>
+        <TaskState>
+          <AlertState>
+            <Router>
+              <Fragment className="App">
+                <Navbar />
+                <div className="container">
+                  <Alerts />
+                  <Switch>
 
-                  <PrivateRoute exact path='/' component={Home} />
-                  <PrivateRoute exact path='/team' component={Team} />
-                  <Route exact path='/register' component={Register} />
-                  <Route exact path='/login' component={Login} />
+                    <PrivateRoute exact path='/' component={Home} />
+                    <PrivateRoute exact path='/team' component={Team} />
+                    <AdminRoute exact path='/admin' component={Admin} />
+                    <Route exact path='/register' component={Register} />
+                    <Route exact path='/login' component={Login} />
 
-                </Switch>
-              </div>
-            </Fragment>
 
-          </Router>
-        </AlertState>
-      </TaskState>
+                  </Switch>
+                </div>
+              </Fragment>
+
+            </Router>
+          </AlertState>
+
+        </TaskState>
+      </UserState>
     </AuthState>
   );
 }

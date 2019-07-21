@@ -457,3 +457,7 @@ table th {
     justify-content: center;
   }
 }
+
+input[type="radio"]{
+  -webkit-appearance: radio;
+}

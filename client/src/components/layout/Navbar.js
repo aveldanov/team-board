@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import AuthContext from '../../context/auth/authContext';
 import TaskContext from '../../context/task/taskContext';
-
+import UserContext from '../../context/user/userContext';
 
 const Navbar = ({ title, icon }) => {
   const authContext = useContext(AuthContext);
   const taskContext = useContext(TaskContext);
+  const userContext = useContext(UserContext);
+  const { clearUsers } = userContext;
 
   const { isAuthenticated, logout, user } = authContext;
   const { clearTasks } = taskContext;
@@ -17,7 +19,21 @@ const Navbar = ({ title, icon }) => {
   const onLogout = () => {
     logout();
     clearTasks();
+    clearUsers()
   }
+
+  const normalizerBoolean = (user) => {
+    if (user !== null && user.admin === true) {
+      return user.admin = "admin"
+    }
+    if (user !== null && user.admin === false) {
+      return user.admin = "user"
+
+    }
+    return user
+  }
+  normalizerBoolean(user);
+  console.log(user);
 
 
   const authLinks = (
@@ -28,7 +44,12 @@ const Navbar = ({ title, icon }) => {
       <li>
         <Link to="/team">Team</Link>
       </li>
-      <li>Hello {user && user.name}</li>
+      <li>
+        {user && (user.admin === "admin") ? <Link to="/admin">Admin</Link> : null}
+      </li>
+      <li>Hello {user && user.name} &nbsp;</li>
+
+      <li> Type {user && user.admin}</li>
       <li>
         <a onClick={onLogout} href="#!">
           <i className="fas fa-sign-out-alt"></i>

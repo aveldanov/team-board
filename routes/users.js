@@ -151,10 +151,9 @@ router.put('/:id', auth, async (req, res) => {
 
 router.delete('/:id', auth, async (req, res) => {
   const loggeduser = await User.findById(req.user.id).select('-password');
+  console.log('[Delete - logged user] ', loggeduser);
 
-  const { admin, name, email, password } = req.body;
-
-  console.log('Out', req.params.id);
+  console.log('[Delete - user to delete: ', req.params.id);
 
 
   try {
@@ -163,7 +162,7 @@ router.delete('/:id', auth, async (req, res) => {
     }
 
     let user = await User.findById(req.params.id);
-    console.log('USER: ', user);
+    console.log("[User to delete from DB ]", user);
 
     if (!user) {
       return res.status(404).json({ msg: 'User not found' });
@@ -172,6 +171,7 @@ router.delete('/:id', auth, async (req, res) => {
 
     await User.findByIdAndRemove(req.params.id);
 
+    res.json({ msg: 'User Deleted' })
 
   } catch (err) {
     console.error("Error message", err);

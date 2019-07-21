@@ -8,6 +8,16 @@ export const CLEAR_TASKS = 'CLEAR_TASKS';
 export const GET_ALL_TASKS = 'GET_ALL_TASKS';
 
 
+export const DELETE_USER = 'DELETE_USER';
+export const UPDATE_USER = 'UPDATE_USER';
+export const SET_CURRENT_USER = 'SET_CURRENT_USER';
+export const CLEAR_CURRENT_USER = 'CLEAR_CURRENT_USER';
+export const GET_USERS = 'GET_USERS';
+export const CLEAR_USERS = 'CLEAR_USERS';
+export const USER_ERROR = 'USER_ERROR';
+
+
+
 
 export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';

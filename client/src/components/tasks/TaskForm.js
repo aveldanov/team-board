@@ -8,6 +8,8 @@ const TaskForm = () => {
 
   const { addTask, current, clearCurrent, updateTask } = taskContext;
 
+
+
   useEffect(() => {
     if (current !== null) {
       setTask(current);
