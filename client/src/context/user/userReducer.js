@@ -20,7 +20,7 @@ export default (state, action) => {
     case UPDATE_USER:
       return {
         ...state,
-        users: state.users.map(user => user.id === action.payload.id ? action.payload : user),
+        users: state.users.map(user => user._id === action.payload._id ? action.payload : user),
         loading: false
       }
     case DELETE_USER:

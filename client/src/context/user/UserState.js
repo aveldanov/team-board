@@ -73,6 +73,42 @@ const UserState = props => {
   }
 
 
+
+  // Update User
+
+  const updateUser = async user => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+
+    try {
+      const res = await axios.put(`/api/users/${user._id}`, user, config)
+
+      dispatch({
+        type: UPDATE_USER,
+        payload: res.data
+      })
+
+
+    } catch (err) {
+      dispatch({
+        type: USER_ERROR,
+        payload: err.response.msg
+      })
+    }
+
+
+
+
+
+
+  }
+
+
+
+
   // Clear Users
 
 
@@ -83,14 +119,7 @@ const UserState = props => {
   }
 
 
-  // Update User
 
-  const updateUser = user => {
-    dispatch({
-      type: UPDATE_USER,
-      payload: user
-    })
-  }
 
   // Set Current User
   const setCurrentUser = user => {
