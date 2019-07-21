@@ -8,6 +8,7 @@ const auth = require('../middleware/auth');
 
 
 const User = require('../models/User');
+const Task = require('../models/Task');
 
 
 // @route POST api/users
@@ -167,10 +168,12 @@ router.delete('/:id', auth, async (req, res) => {
     if (!user) {
       return res.status(404).json({ msg: 'User not found' });
     }
+    await Task.deleteMany({ user: req.params.id });
+
+    // res.json(tasks)
 
 
-    await User.findByIdAndRemove(req.params.id);
-
+    // await User.findByIdAndRemove(req.params.id);
     res.json({ msg: 'User Deleted' })
 
   } catch (err) {
