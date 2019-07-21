@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 const config = require('config');
 const auth = require('../middleware/auth');
 
-
 const User = require('../models/User');
 const Task = require('../models/Task');
 
